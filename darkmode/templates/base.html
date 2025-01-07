@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} | {% endif %}Stattic</title>
+    <meta name="description" content="{% if seo_description %}{{ seo_description }}{% else %}Stattic is a fast, lightweight static site generator that optimizes images, supports custom fonts, and easily integrates with GitHub Pages for quick, SEO-friendly site deployment without the bloat of traditional CMS platforms like WordPress.{% endif %}">
+    <meta name="keywords" content="{% if seo_keywords %}{{ seo_keywords }}{% else %}SSG, Static Site Generator{% endif %}">
+    <meta name="author" content="{% if author %}{{ author }}{% else %}Robert DeVore{% endif %}">
+    <!-- Use relative_path to correctly reference assets -->
+    <link href="{{ relative_path }}assets/css/tailwind.min.css" rel="stylesheet preload" as="style">
+    {% if minify %}
+    <link href="{{ relative_path }}assets/css/stattic.min.css" rel="stylesheet preload" as="style">
+    {% else %}
+    <link href="{{ relative_path }}assets/css/stattic.css" rel="stylesheet preload" as="style">
+    <link href="{{ relative_path }}assets/css/fonts.css" rel="stylesheet preload" as="style">
+    {% endif %}
+    <!-- Canonical URL -->
+    {% if canonical %}
+    <link rel="canonical" href="{{ canonical }}">
+    {% endif %}
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="{% if seo_title %}{{ seo_title }}{% else %}{{ title }}{% endif %}">
+    <meta property="og:description" content="{% if seo_description %}{{ seo_description }}{% else %}Stattic is a fast, lightweight static site generator.{% endif %}">
+    <meta property="og:url" content="{% if canonical %}{{ canonical }}{% else %}{{ site_url }}/{{ page.permalink | trim('/') }}{% endif %}">
+    <meta property="og:type" content="website">
+    {% if featured_image %}
+    <meta property="og:image" content="{{ relative_path }}{{ featured_image }}">
+    {% endif %}
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if seo_title %}{{ seo_title }}{% else %}{{ title }}{% endif %}">
+    <meta name="twitter:description" content="{% if seo_description %}{{ seo_description }}{% else %}Stattic is a fast, lightweight static site generator.{% endif %}">
+    {% if featured_image %}
+    <meta name="twitter:image" content="{{ relative_path }}{{ featured_image }}">
+    {% endif %}
+    <!-- Alpine.js for interactive components -->
+    <script src="{{ relative_path }}assets/js/alpine.min.js" defer></script>
+</head>
+<body class="bg-background text-primary quicksand-300">
+
+<!-- Skip Links for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#navigation" class="skip-link">Skip to navigation</a>
+<a href="#footer" class="skip-link">Skip to footer</a>
+
+<header class="bg-background" id="navigation">
+    <div class="container max-w-screen-xl m-auto py-6 px-4 flex justify-between items-center">
+        <!-- Home link using relative_path -->
+        <h2 class="text-3xl font-bold quicksand-700"><a href="{{ relative_path }}index.html" class="text-links">Stattic</a></h2>
+        <nav>
+            <ul class="flex space-x-6">
+                {% for page in pages %}
+                    {% if page.nav_hide != 'true' %}
+                        <li>
+                            <!-- Internal links using relative_path and permalink -->
+                            <a href="{{ relative_path }}{{ page.permalink.strip('/') }}/index.html" class="text-primary hover:underline quicksand-700">{{ page.title }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+{% block content %}
+    <!-- Page content will go here -->
+{% endblock %}
+
+<footer class="bg-background border-t border-secondary mt-10 py-6" id="footer">
+    <div class="container max-w-screen-xl m-auto px-4 text-center">
+        <p>Get <a href="https://stattic.site/" target="_blank" class="text-links font-bold" aria-label="Stattic - opens in a new tab">Stattic</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

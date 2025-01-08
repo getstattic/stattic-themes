@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stattic - Themes</title>
+    <meta name="description" content="Themes for Stattic: a fast, lightweight static site generator that optimizes images, supports custom fonts, and easily integrates with GitHub Pages for quick, SEO-friendly site deployment without the bloat of traditional CMS platforms like WordPress.">
+    <meta name="keywords" content="Decentralized Publishing, Static Site Generator, SSG, Python Site Generator">
+    <meta name="author" content="Robert DeVore">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    </noscript>
+    <style>
+      body {
+       font-family: 'Quicksand', 'Open Sans', 'Helvetica', 'Arial', san-serif;
+      }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center bg-slate-950">
+    <h1 class="text-7xl font-bold text-green-500">Stattic</h1>
+    <h2 class="text-2xl mt-2 mb-2 text-slate-50">Theme Collection</h2>
+
+    <!-- Themes Section -->
+    <section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 w-11/12 max-w-screen-lg">
+        <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
+            <img src="theme-core.jpg" alt="Theme 3" class="w-full rounded">
+            <h3 class="text-xl font-semibold text-slate-50 mt-4">Core Theme</h3>
+            <p class="text-slate-400 mt-2">The default theme that comes pre-built into Stattic.</p>
+            <div class="mt-4 grid grid-cols-2 gap-2">
+                <a href="core.zip" class="bg-green-600 hover:bg-green-700 text-slate-50 font-bold py-2 px-4 rounded text-center">Download</a>
+                <a href="https://demo.stattic.site" target="_blank" class="bg-gray-600 hover:bg-gray-700 text-slate-50 font-bold py-2 px-4 rounded text-center">Demo</a>
+            </div>
+        </div>
+        <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
+            <img src="theme-light-mode.jpg" alt="Theme 2" class="w-full rounded">
+            <h3 class="text-xl font-semibold text-slate-50 mt-4">Light Mode</h3>
+            <p class="text-slate-400 mt-2">A light and clean theme perfect for the minimalist in you.</p>
+            <div class="mt-4 grid grid-cols-2 gap-2">
+                <a href="lightmode.zip" class="bg-green-600 hover:bg-green-700 text-slate-50 font-bold py-2 px-4 rounded text-center">Download</a>
+                <a href="https://demo-lightmode.stattic.site" target="_blank" class="bg-gray-600 hover:bg-gray-700 text-slate-50 font-bold py-2 px-4 rounded text-center">Demo</a>
+            </div>
+        </div>
+        <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
+            <img src="theme-dark-mode.jpg" alt="Theme 1" class="w-full rounded">
+            <h3 class="text-xl font-semibold text-slate-50 mt-4">Dark Mode</h3>
+            <p class="text-slate-400 mt-2">A dark and modern theme designed to help save your retinas.</p>
+            <div class="mt-4 grid grid-cols-2 gap-2">
+                <a href="darkmode.zip" class="bg-green-600 hover:bg-green-700 text-slate-50 font-bold py-2 px-4 rounded text-center">Download</a>
+                <a href="https://demo-darkmode.stattic.site" target="_blank" class="bg-gray-600 hover:bg-gray-700 text-slate-50 font-bold py-2 px-4 rounded text-center">Demo</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
